@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Data Input</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="head">
+            <h1>Fuel Efficiency & Ticket Analytics</h1>
+        </div>
+        <div class="add_vehicle">
+            <h2>Upload Vehicle Data (Excel)</h2>
+            <input type="file" id="upload" accept=".xlsx, .xls">
+        </div>
+        <div class="finalize">
+            <h2>Vehicles Added</h2>
+            <ul id="vehicleList"></ul>
+            <button onclick="finalizeData()">Finalize and Analyze</button>
+        </div>
+        <div class="analysis">
+            <h2>Analysis Results</h2>
+            <p id="totalFuel"></p>
+            <p id="totalTicketSales"></p>
+            <p id="averageEfficiency"></p>
+            <p id="bestVehicle"></p>
+            <p id="worstVehicle"></p>
+        </div>
+
+        <!-- Canvas for Efficiency Line Graph -->
+        <h2>Efficiency (Line Graph)</h2>
+         <div class="efficiency">
+           
+            <canvas id="efficiencyChart" width="500" height="300"></canvas>
+         </div>
+        
+
+        <!-- Canvas for Ticket Sales Histogram -->
+        <h2>Ticket Sales (Histogram)</h2>
+         <div class="tickets">
+            
+            <canvas id="ticketSalesChart" width="400" height="200"></canvas>
+         </div>
+        
+
+        <!-- Email section -->
+        <h2>Send Results via Email</h2>
+        <input type="email" id="emailInput" placeholder="Enter email address">
+        <button onclick="sendEmail()" id="Send_Email">Send Email</button>
+
+        <!-- Button to download analysis data -->
+        <button onclick="downloadCSV()" id="download_csv">Download Analysis CSV</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script> <!-- Add EmailJS -->
+    <script src="index.js"></script>
+</body>
+</html>
